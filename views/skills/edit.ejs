@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+<form class="edit-form" action="/skills/<%= skill.id %>?_method=PUT" method='post'>
+    <input name="title" type="text" value="<%= skill.title %>" autofocus>
+    <textarea name="description" spellcheck="false">
+        <%= skill.description %>
+    </textarea>
+    <button type="submit">DONE</button>
+</form>
+
+<%- include('../partials/footer') %>

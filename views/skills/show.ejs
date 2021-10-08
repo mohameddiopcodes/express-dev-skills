@@ -1,5 +1,9 @@
 <%- include('../partials/header') %>
 
-<p><%= `I know how to use ${skill.title}` %></p>
+<h3><%= skill.title %></h3>
+
+<p class='description'><%= skill.description %></p>
+
+<button class='edit-btn'><a href="/skills/edit<%= '/' + skill.id %>">EDIT</a></button>
 
 <%- include('../partials/footer') %>

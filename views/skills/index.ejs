@@ -1,13 +1,19 @@
 <%- include('../partials/header') %>
 
-<ul>
-    <% skills.forEach(skill => { %>
-        <li>
-            <a href="/skills/<%= skill.id %>">
-                <%= skill.title %>
-            </a>
-        </li>
+<div class='skills'>
+    <% skills.forEach( skill => { %>
+    <div class='skill'>
+        <form class='delete' action="/skills/<%= skill.id %>?_method=DELETE" method='POST' autofocus autocomplete="off">
+            <button class='remove-btn'>X</button>
+        </form>
+        <a href="<%= `skills/${skill.id}` %>"><%= skill.title %></a>
+    </div>
     <% }) %>
-</ul>
+    <p class="<%= skills.length === 0 ? 'no-skills':'hide no-skills' %>">no skill to display.</p>
+</div>
+<form method='post' action='skills' id='skill-form'>
+    <input id='title' name='title' type="text">
+    <button form='skill-form' class="submit">Submit</button>
+</form>
 
 <%- include('../partials/footer') %>
